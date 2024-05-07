@@ -1,5 +1,17 @@
 # Splunk Install Cheatsheet
 
+## Requirements
+### Hardware
+- 32 vCPU
+- 24 GB Memory
+- The `/opt/splunk` mount at least 200 GB Storage
+
+### Daily Indexing Volume
+You can index up to 500 MB of data per day.
+
+### Search Availability
+If you exceed the daily volume limit, you may receive license violation warnings. If there are 3 license violation warnings in a rolling 30-day window, the free license will prevent searching, but data indexing will continue.
+
 ## Installation 
 ```
 rpm -i <rpm_path>
