@@ -9,6 +9,11 @@ rpm -i <rpm_path>
 
 ## Configuration
 ### Configure Ports
+Default Ports:
+- Web Interface, 8000
+- Deployment Server, 8089
+- Indexer, 9997
+- HEC, 8088
 Edit the file `/opt/splunk/etc/system/local/web.conf` and add the stanza:
 ```
 [settings]
@@ -24,6 +29,10 @@ enableSplunkWebSSL = true
 privKeyPath = /opt/splunk/etc/auth/mycerts/<mySplunkWebPrivateKey>.key
 serverCert = /opt/splunk/etc/auth/mycerts/<mySplunkWebCertificate>.pem
 ```
+
+### Configure LDAP Authentication
+Settings -> Authentication Methods -> LDAP -> Configure Splunk to use LDAP -> New LDAP
+Access to the domain controllers in port 389 (LDAP) or port 636 (LDAP over SSL)
 
 ## Restart Splunk Service
 A reboot is required for the changes to take effect.
